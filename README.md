@@ -1,4 +1,4 @@
-# contacts
+# Contacts
 
 Launching Web Service:
 
@@ -25,4 +25,8 @@ Update particular contact: ```/contacts/<id>```
 
 DELETE
 
-Delete particular contact: ```/contacts/<id>```
+Remove particular contact: ```/contacts/<id>```
+
+POST
+
+Add new contact: ```/contacts/<id>```
