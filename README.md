@@ -29,4 +29,4 @@ Remove particular contact: ```/contacts/<id>```
 
 POST
 
-Add new contact: ```/contacts/<id>```
+Add new contact: ```/contacts```
