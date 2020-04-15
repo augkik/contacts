@@ -41,6 +41,7 @@ public class Controller {
         HttpHeaders headers = headerBuilder(b, element.getId());
 
         if(response == 1) return new ResponseEntity<String>("Contact added successfully.", headers, HttpStatus.CREATED);
+        else if(response == 2) return new ResponseEntity<String>("Failed. Wrong data.", headers, HttpStatus.OK);
         return new ResponseEntity<String>("Failed. Contact already exists.", headers, HttpStatus.BAD_REQUEST);
     }
 
@@ -57,8 +58,10 @@ public class Controller {
                 element = contactAccess.getContact(contact.getId());
             }
             headers = headerBuilder(b, element.getId());
-
+            if(response == 1)
              return new ResponseEntity<String>("Contact updated successfully.", headers, HttpStatus.OK);
+            else
+                return new ResponseEntity<String>("Failed. Wrong data.", headers, HttpStatus.OK);
         }
         else return new ResponseEntity<String>("Failed. Could not find contact.", HttpStatus.NOT_FOUND);
     }

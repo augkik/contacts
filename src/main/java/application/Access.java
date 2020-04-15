@@ -29,15 +29,29 @@ public class Access {
         return null;
     }
 
-    public int addContact(Contact nContact){
-        for(Contact contact : contactList){
-            if(contact.equals(nContact) || contact.getId() == nContact.getId()) return 0;
+    public int addContact(Contact nContact) {
+
+        for (Contact contact : contactList) {
+            if (contact.equals(nContact) || contact.getId() == nContact.getId() || contact.getNumber() == nContact.getName()) {
+                return 0;
+            }
+
         }
+
+        if (nContact.getId() == 0 || nContact.getName() == null || nContact.getNumber() == null || nContact.getSurname() == null || nContact.getEmail() == null) {
+            return 2;
+        }
+
         contactList.add(nContact);
         return 1;
     }
 
     public int updateContact(int oId, Contact uContact){
+
+        if (uContact.getName() == null || uContact.getNumber() == null || uContact.getSurname() == null || uContact.getEmail() == null) {
+            return 2;
+        }
+
         if(uContact.getId() == 0)
             uContact.setId(oId);
         for(Contact contact : contactList){
@@ -47,6 +61,7 @@ public class Access {
                 return 1;
             }
         }
+
         return 0;
     }
 
