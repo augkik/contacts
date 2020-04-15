@@ -1,10 +1,7 @@
 package application;
 
-import java.io.Serializable;
-import javax.validation.constraints.NotNull;
 
 public class Contact {
-    private static final long serialVersionUID = 1L;
 
     private int id;
     private String surname;
