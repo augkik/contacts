@@ -1,6 +1,7 @@
 package application;
 
 
+
 public class Contact {
 
     private int id;
@@ -60,6 +61,8 @@ public class Contact {
         return email;
     }
 
+
+
     public boolean equals(Contact contact){
         if(contact == null) return false;
         else{
@@ -67,4 +70,5 @@ public class Contact {
         }
         return false;
     }
+
 }
