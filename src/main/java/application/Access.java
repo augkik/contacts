@@ -23,6 +23,8 @@ public class Access {
     }
 
     public Contact getContact(int id){
+        if(contactList == null)
+            initContacts();
         for(Contact contact : contactList){
             if(contact.getId() == id) return contact;
         }
@@ -30,6 +32,8 @@ public class Access {
     }
 
     public int addContact(Contact nContact) {
+        if(contactList == null)
+            initContacts();
 
         for (Contact contact : contactList) {
             if (contact.equals(nContact) || contact.getId() == nContact.getId() || contact.getNumber() == nContact.getName()) {
@@ -48,8 +52,17 @@ public class Access {
 
     public int updateContact(int oId, Contact uContact){
 
+        if(contactList == null)
+            initContacts();
+
         if (uContact.getName() == null || uContact.getNumber() == null || uContact.getSurname() == null || uContact.getEmail() == null) {
             return 2;
+        }
+
+        for(Contact contact : contactList) {
+            if(contact.getId() == uContact.getId()){
+                return 3;
+            }
         }
 
         if(uContact.getId() == 0)
@@ -66,6 +79,10 @@ public class Access {
     }
 
     public int deleteContact(int id){
+
+        if(contactList == null)
+            initContacts();
+
         for(Contact contact : contactList){
             if(contact.getId() == id){
                 contactList.remove(contact);

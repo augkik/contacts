@@ -60,8 +60,11 @@ public class Controller {
             headers = headerBuilder(b, element.getId());
             if(response == 1)
              return new ResponseEntity<String>("Contact updated successfully.", headers, HttpStatus.OK);
+            else if(response == 3)
+                return new ResponseEntity<String>("Failed. New id already exists.", headers, HttpStatus.BAD_REQUEST);
             else
                 return new ResponseEntity<String>("Failed. Wrong data.", headers, HttpStatus.BAD_REQUEST);
+
         }
         else return new ResponseEntity<String>("Failed. Could not find contact.", HttpStatus.NOT_FOUND);
     }
